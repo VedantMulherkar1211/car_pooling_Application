@@ -1,0 +1,46 @@
+Using sql files for operations:
+------------------------------
+
+source B:\Cdac\DBT Project\Car Pooling\Final\Car Pooling Tables.sql
+source B:\Cdac\DBT Project\Car Pooling\Final\Procedure Table.sql
+source B:\Cdac\DBT Project\Car Pooling\Final\InsertData.sql
+source B:\Cdac\DBT Project\Car Pooling\Final\select tables.sql
+source B:\Cdac\DBT Project\Car Pooling\Final\view bill.sql
+
+Select Queries for displaying tables:
+-------------------------------------
+
+select * from passenger;
+select * from driver;
+select * from vehicles;
+select * from trip;
+select * from booking;
+select * from feedback;
+
+Queries for deleting data:
+--------------------------
+
+ 
+
+Queries for update row:
+----------------------
+update trip set available_seats=2 where trip_id=8;
+update booking set trip_id=3 where booking_id=3;
+UPDATE feedback f JOIN booking b ON f.passenger_id = b.passenger_id SET f.trip_id = b.trip_id;
+
+command to call processures:
+---------------------------
+
+CALL InsertPassenger('Sachin123','Sachin Patil','sachin123','sachin007@email.com','1990-01-01','M','Panchavati Nashik','1234567890');
+CALL InsertDriver('Raju123', 'Raju Rajput', 'raju555', 'raju123@example.com', '1980-01-01', 'M', '9854567890', '123 gokhale nager pune', 'MP123456');
+CALL InsertVehicle(1, 'Toyota', 'Sedan', 'Blue Sedan', 'ABC123');
+CALL InsertTrip(1, 'Nashik', 'Pune', '2023-11-29 08:00:00', 400.00, 7);
+CALL InsertBooking(1, 1, 2);
+CALL InsertFeedback(2, 1, 2, 'Average trip', 3);
+
+command to call function:
+-------------------------
+
+command to call view:
+
+call bill(passenger_id);
